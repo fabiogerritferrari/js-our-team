@@ -6,7 +6,7 @@
 
 // Rendere l’esercizio responsive, mandando a capo le card
 // Aggiungere un form di aggiunta membri che permetta di visualizzare il nuovo membro sulla pagina (usate una foto qualunque, anche vostra se volete sentirvi parte del team! 😀)
-
+const cardRow=document.getElementById("cardRow")
 
 const teamMembers = [
   {
@@ -46,3 +46,37 @@ const teamMembers = [
     img: "img/female3.png"
   }
 ];
+
+
+GenerateNewCard = (obj) => {
+  
+  const {name, role, email, img} = obj;
+  const card= document.createElement("div");
+  card.innerHTML = `<div class="card mb-3 bg-black text-white">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="${img}" class="img-fluid rounded-start" alt="immagine di ${name}">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">${name}</h5>
+        <p class="card-text">Role:${role}
+        <a href="">Email:${email}</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>`;
+  card.classList=("col")
+  return card;
+};
+
+function renderCard (array) {
+  for (let index = 0; index < array.length; index++) {
+
+    const newCard=GenerateNewCard(array[index]);
+    cardRow.append(newCard);
+  }
+}
+
+renderCard(teamMembers);
