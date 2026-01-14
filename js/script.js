@@ -54,20 +54,20 @@ GenerateNewCard = (obj) => {
   const card= document.createElement("div");
   card.innerHTML = `<div class="card mb-3 bg-black text-white">
   <div class="row g-0">
-    <div class="col-md-4">
-      <img src="${img}" class="img-fluid rounded-start" alt="immagine di ${name}">
+    <div class="col-md-3">
+      <img src="${img}" class="img-fluid  rounded-start" alt="immagine di ${name}">
     </div>
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">${name}</h5>
-        <p class="card-text">Role:${role}
+        <p class="card-text">Role:${role}</br>
         <a href="">Email:${email}</a>
         </p>
       </div>
     </div>
   </div>
 </div>`;
-  card.classList=("col")
+  card.classList=("col-6")
   return card;
 };
 
