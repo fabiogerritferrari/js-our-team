@@ -94,10 +94,10 @@ form.addEventListener("submit", (event) =>{
   event.preventDefault();
   
   const newMember={
-    name:`${inputFirstName.textContent} ${inputLastName.textContent}`,
-    role:inputRole.textContent,
-    email:inputEmail.textContent,
-    img:inputImg.textContent,
+    name:`${inputFirstName.value} ${inputLastName.value}`,
+    role:inputRole.value,
+    email:inputEmail.value,
+    img:inputImg.value,
   };
 
   const newCardMember= GenerateNewCard(newMember);
