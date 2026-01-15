@@ -54,29 +54,55 @@ GenerateNewCard = (obj) => {
   const card= document.createElement("div");
   card.innerHTML = `<div class="card mb-3 bg-black text-white">
   <div class="row g-0">
-    <div class="col-md-3">
-      <img src="${img}" class="img-fluid  rounded-start" alt="immagine di ${name}">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">${name}</h5>
-        <p class="card-text">Role: ${role}</br>
-        <a href="">Email: ${email}</a>
-        </p>
-      </div>
-    </div>
+  <div class="col-md-3">
+  <img src="${img}" class="img-fluid  rounded-start" alt="immagine di ${name}">
   </div>
-</div>`;
+  <div class="col-md-8">
+  <div class="card-body">
+  <h5 class="card-title">${name}</h5>
+  <p class="card-text">Role: ${role}</br>
+  <a href="">Email: ${email}</a>
+  </p>
+  </div>
+  </div>
+  </div>
+  </div>`;
   card.classList=("col-6")
   return card;
 };
 
 function renderCard (array) {
   for (let index = 0; index < array.length; index++) {
-
+    
     const newCard=GenerateNewCard(array[index]);
     cardRow.append(newCard);
   }
 }
 
 renderCard(teamMembers);
+
+const form=document.querySelector("form");
+const inputFirstName=document.getElementById("firstName");
+const inputLastName=document.getElementById("lastName");
+const inputEmail=document.getElementById("email");
+const inputRole=document.getElementById("role");
+const inputImg=document.getElementById("inputImg");
+
+
+
+form.addEventListener("submit", (event) =>{
+  event.preventDefault();
+  
+  const newMember={
+    name:`${inputFirstName.textContent} ${inputLastName.textContent}`,
+    role:inputRole.textContent,
+    email:inputEmail.textContent,
+    img:inputImg.textContent,
+  };
+
+  const newCardMember= GenerateNewCard(newMember);
+
+  cardRow.append(newCardMember);
+
+})
+
