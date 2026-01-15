@@ -60,8 +60,8 @@ GenerateNewCard = (obj) => {
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">${name}</h5>
-        <p class="card-text">Role:${role}</br>
-        <a href="">Email:${email}</a>
+        <p class="card-text">Role: ${role}</br>
+        <a href="">Email: ${email}</a>
         </p>
       </div>
     </div>
